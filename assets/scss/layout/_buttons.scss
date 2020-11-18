@@ -1,0 +1,33 @@
+.btn-primary {
+  background-color: $primary;
+  border-radius: 6px;
+  height: 40px;
+
+  &.v-btn:not(.v-btn--round).v-size--default {
+    border-radius: 6px;
+    height: 40px;
+    @extend %button;
+    letter-spacing: 1.5px;
+  }
+
+  .v-btn__content {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  &.theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: $primary;
+  }
+}
+
+
+.btn-add {
+  background-color: $primary;
+
+  &.theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    height: 40px;
+    width: 40px;
+    background-color: $primary;
+    color: #fff;
+  }
+}

@@ -1,0 +1,46 @@
+.clients {}
+
+
+.star {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
+  margin-left: 5px;
+}
+
+
+.whatsapp,
+.tm {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+
+.point {
+  position: relative;
+  padding-left: 17px;
+
+  &:after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $A400;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+.checkbox {
+  .panel__checkbox {
+    transform: translateY(8px);
+
+    .mdi-checkbox-blank-outline::before {
+      color: $Grey300;
+    }
+  }
+}

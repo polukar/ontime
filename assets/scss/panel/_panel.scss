@@ -1,0 +1,146 @@
+.panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  width: 375px;
+  background-color: #fff;
+  box-shadow: -3px 0 10px 0 rgba(#000, .20);
+  overflow: hidden;
+  transform: translateX(120%);
+  transition: transform .4s;
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.panel__head {
+  height: 56px;
+  border-bottom: 1px solid $Grey300;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.back {
+  color: $A400;
+  width: 33%;
+  cursor: pointer;
+  @extend %caption;
+
+  svg {
+    width: 9px;
+    height: 13px;
+    margin-right: 8px;
+    order: -1;
+  }
+}
+
+.close {
+  width: 33%;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.panel__body {
+  padding-top: 10px;
+}
+
+.panel__title {
+  width: 33%;
+  @extend %h6;
+}
+
+.panel-label {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $Grey300;
+
+  input {
+    padding-left: 15px;
+    border: none;
+  }
+
+  .v-text-field>.v-input__control>.v-input__slot:before,
+  .v-text-field>.v-input__control>.v-input__slot:after {
+    display: none;
+  }
+
+  .v-label {
+    padding-left: 15px;
+
+    &--active {
+      padding-left: 21px;
+    }
+  }
+
+  .v-messages {
+    min-height: auto;
+  }
+
+  .v-input__slot {
+    margin-bottom: 0px;
+  }
+}
+
+
+
+.delete {
+  height: 64px;
+  padding-left: 15px;
+  background-color: #fff;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 12px $Gray100;
+  cursor: pointer;
+
+
+  svg {
+    width: 14px;
+    height: 18px;
+    margin-right: 11px;
+  }
+}
+
+.panel__footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 30px;
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+
+.panel__checkbox {
+  padding-left: 15px;
+  margin-top: 0px;
+
+  .v-input--selection-controls__ripple {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  .v-application--is-ltr .v-input--selection-controls__input {
+    position: relative;
+  }
+
+  .v-icon.v-icon {
+    color: $A400;
+  }
+
+
+}

@@ -1,0 +1,18 @@
+// layout
+@import './scss/layout/variables';
+@import './scss/layout/typography';
+@import './scss/layout/buttons';
+
+//base
+@import './scss/base/base';
+
+// components
+@import './scss/header/header';
+@import './scss/nav/nav';
+@import './scss/panel/panel';
+
+
+// pages
+
+@import './scss/pages/places';
+@import './scss/pages/clients';

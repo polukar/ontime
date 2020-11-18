@@ -1,0 +1,32 @@
+.place-table {
+  .theme--light.v-chip:not(.v-chip--active).active {
+    background-color: $A400;
+    color: #fff;
+  }
+
+  .theme--light.v-chip:not(.v-chip--active) {
+    background-color: $Grey6;
+    color: $Grey2;
+    font-weight: bold;
+    font-size: 11px;
+    height: 24px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .theme--light.v-btn {
+    color: $black;
+    height: 28px;
+    font-size: 13px;
+    transition: background-color .4s;
+
+    &:hover {
+      background-color: $Grey300;
+    }
+  }
+
+  .v-btn--outlined {
+    border: 1px solid $Grey300;
+  }
+}
