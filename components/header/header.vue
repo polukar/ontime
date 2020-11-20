@@ -11,7 +11,7 @@
         </v-btn>
       </template>
       <v-list class="drop-down-header">
-        <v-list-item>Настройки</v-list-item>
+        <v-list-item @click="panelStatus">Настройки</v-list-item>
         <v-list-item>Выйти</v-list-item>
       </v-list>
     </v-menu>
@@ -27,6 +27,11 @@ export default {
       logo: logo,
       iconArrowDown: iconArrowDown,
     };
+  },
+  methods: {
+    panelStatus() {
+      this.$store.commit("settings/statusSettings");
+    },
   },
 };
 </script>
