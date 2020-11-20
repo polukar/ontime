@@ -1,0 +1,150 @@
+.enter {
+  width: 100%;
+  height: 100%;
+  background: url(~assets/img/enter-bg.jpg) no-repeat left top / cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  padding-top: 70px;
+}
+
+.enter__panel {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+  border-radius: 8px;
+  padding-top: 36px;
+  padding-bottom: 88px;
+  width: 100%;
+  max-width: 474px;
+
+  .v-tab {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 12px;
+    margin-right: 12px;
+    min-width: auto;
+    text-transform: none;
+    font-size: 16px;
+    letter-spacing: 0px;
+    font-weight: normal;
+  }
+
+  .v-tabs-slider-wrapper .v-tabs-slider.yellow {
+    background-color: $A400 !important;
+    border-color: $A400 !important;
+  }
+
+  .v-tab.v-tab {
+    color: #000;
+  }
+
+  .theme--light.v-tabs>.v-tabs-bar .v-tab:not(.v-tab--active),
+  .theme--light.v-tabs>.v-tabs-bar .v-tab:not(.v-tab--active)>.v-icon,
+  .theme--light.v-tabs>.v-tabs-bar .v-tab:not(.v-tab--active)>.v-btn,
+  .theme--light.v-tabs>.v-tabs-bar .v-tab--disabled {
+    color: $GrayK;
+  }
+}
+
+.enter__tabs {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+.enter__logo {
+  padding: 0 32px;
+  margin-bottom: 20px;
+
+  svg {
+    width: 103px;
+    height: 30px;
+  }
+}
+
+.enter__socials {
+  height: 60px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: $GrayM;
+  margin-bottom: 24px;
+}
+
+.socials {}
+
+
+
+.socials__link {
+  width: 36px;
+  height: 36px;
+  margin-left: 12px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.enter__form {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+
+.enter__input {
+  box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 56px;
+    background-color: transparent;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  padding-left: 16px;
+  z-index: 1;
+  transition: .4s;
+
+  input:focus+& {
+    transform: translateY(-100%) scale(.8);
+    transform-origin: left top;
+  }
+}
+
+
+.enter__btn {
+  padding-top: 42px;
+
+  .btn-primary {
+    width: 100%;
+    height: 44px;
+  }
+
+  .btn-primary.v-btn:not(.v-btn--round).v-size--default {
+    height: 44px;
+  }
+}
+
+
+.registr {
+  padding-top: 40px;
+}
