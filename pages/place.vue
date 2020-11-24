@@ -1,108 +1,112 @@
 <template>
-  <div class="page d-flex">
-    <vNav></vNav>
-    <div class="content">
-      <header class="page__header d-flex justify-space-between align-center">
-        <h1 class="h1-title">Места</h1>
-        <v-btn fab class="btn-add" @click="newItem">
-          <v-icon light> mdi-plus </v-icon>
-        </v-btn>
-      </header>
-      <div class="filter d-flex align-center">
-        <div class="search m-r-20">
-          <v-text-field label="Поиск"></v-text-field>
+  <div class="page">
+    <mobileHeader title="Места"></mobileHeader>
+    <div class="page-wrap d-flex">
+      <vNav></vNav>
+      <div class="content">
+        <header class="page__header d-flex justify-space-between align-center">
+          <h1 class="h1-title">Места</h1>
+          <v-btn fab class="btn-add" @click="newItem">
+            <v-icon light> mdi-plus </v-icon>
+          </v-btn>
+        </header>
+        <div class="filter d-flex align-center">
+          <div class="search m-r-20">
+            <v-text-field label="Поиск"></v-text-field>
+          </div>
+          <div class="select">
+            <v-select
+              label="Активность"
+              v-model="active"
+              :items="actives"
+            ></v-select>
+          </div>
         </div>
-        <div class="select">
-          <v-select
-            label="Активность"
-            v-model="active"
-            :items="actives"
-          ></v-select>
-        </div>
-      </div>
-      <div class="innerpage">
-        <v-data-table
-          :headers="headers"
-          :items="places"
-          hide-default-header
-          hide-default-footer
-          class="place-table"
-        >
-          <template
-            v-slot:item.active="{ item }"
-            class="d-flex justify-content-center"
+        <div class="innerpage">
+          <v-data-table
+            :headers="headers"
+            :items="places"
+            hide-default-header
+            hide-default-footer
+            class="place-table"
+            :mobile-breakpoint="0"
           >
-            <div class="d-flex justify-center">
-              <v-chip v-if="item.active" :class="{ active: item.active }">
-                активно
-              </v-chip>
-              <v-chip v-else> Неактивно </v-chip>
+            <template
+              v-slot:item.active="{ item }"
+              class="d-flex justify-content-center"
+            >
+              <div class="d-flex justify-center">
+                <v-chip v-if="item.active" :class="{ active: item.active }">
+                  активно
+                </v-chip>
+                <v-chip v-else> Неактивно </v-chip>
+              </div>
+            </template>
+            <template v-slot:item.actions="{ item }">
+              <v-btn small outlined @click="editItem(item)"> Открыть</v-btn>
+            </template>
+          </v-data-table>
+        </div>
+        <div class="panel" :class="{ active: panelActive }">
+          <div class="panel__head d-flex justify-space-between align-center">
+            <div class="back d-flex align-center" @click="closePanel">
+              Назад
+              <svg-icon class="panel__head-ico" name="icon-back" />
             </div>
-          </template>
-          <template v-slot:item.actions="{ item }">
-            <v-btn small outlined @click="editItem(item)"> Открыть</v-btn>
-          </template>
-        </v-data-table>
-      </div>
-      <div class="panel" :class="{ active: panelActive }">
-        <div class="panel__head d-flex justify-space-between align-center">
-          <div class="back d-flex align-center" @click="closePanel">
-            Назад
-            <svg-icon class="panel__head-ico" name="icon-back" />
+            <div class="panel__title d-flex justify-center">Место</div>
+            <div class="close d-flex justify-end" @click="closePanel">
+              <svg-icon class="panel__head-ico" name="icon-close" />
+            </div>
           </div>
-          <div class="panel__title d-flex justify-center">Место</div>
-          <div class="close d-flex justify-end" @click="closePanel">
-            <svg-icon class="panel__head-ico" name="icon-close" />
+          <div class="panel__body">
+            <label class="panel-label">
+              <v-text-field
+                label="Название"
+                :value="editedItem.site"
+                v-model="editedItem.site"
+              ></v-text-field>
+            </label>
+            <label class="panel-label">
+              <v-text-field
+                label="Адрес или ссылка"
+                :value="editedItem.address"
+                v-model="editedItem.address"
+              ></v-text-field>
+            </label>
+            <label class="panel-label">
+              <v-text-field
+                label="Метро"
+                :value="editedItem.underground"
+                v-model="editedItem.underground"
+              ></v-text-field>
+            </label>
+            <label class="panel-label d-flex align-center">
+              <v-checkbox
+                class="panel__checkbox"
+                v-model="editedItem.active"
+              ></v-checkbox>
+              Активно
+            </label>
+            <label class="panel-label">
+              <v-text-field label="Комментарий к месту"></v-text-field>
+            </label>
+            <div
+              class="delete d-flex align-center"
+              @click="deleteItem"
+              v-if="editOrNew"
+            >
+              <svg-icon class="panel__head-ico" name="icon-delete" />
+              Удалить место
+            </div>
           </div>
-        </div>
-        <div class="panel__body">
-          <label class="panel-label">
-            <v-text-field
-              label="Название"
-              :value="editedItem.site"
-              v-model="editedItem.site"
-            ></v-text-field>
-          </label>
-          <label class="panel-label">
-            <v-text-field
-              label="Адрес или ссылка"
-              :value="editedItem.address"
-              v-model="editedItem.address"
-            ></v-text-field>
-          </label>
-          <label class="panel-label">
-            <v-text-field
-              label="Метро"
-              :value="editedItem.underground"
-              v-model="editedItem.underground"
-            ></v-text-field>
-          </label>
-          <label class="panel-label d-flex align-center">
-            <v-checkbox
-              class="panel__checkbox"
-              v-model="editedItem.active"
-            ></v-checkbox>
-            Активно
-          </label>
-          <label class="panel-label">
-            <v-text-field label="Комментарий к месту"></v-text-field>
-          </label>
-          <div
-            class="delete d-flex align-center"
-            @click="deleteItem"
-            v-if="editOrNew"
-          >
-            <svg-icon class="panel__head-ico" name="icon-delete" />
-            Удалить место
+          <div class="panel__footer">
+            <v-btn normal class="btn-primary" v-if="editOrNew" @click="saveItem"
+              >СОХРАНИТЬ</v-btn
+            >
+            <v-btn normal class="btn-primary" v-else @click="addPlace"
+              >СОХРАНИТЬ</v-btn
+            >
           </div>
-        </div>
-        <div class="panel__footer">
-          <v-btn normal class="btn-primary" v-if="editOrNew" @click="saveItem"
-            >СОХРАНИТЬ</v-btn
-          >
-          <v-btn normal class="btn-primary" v-else @click="addPlace"
-            >СОХРАНИТЬ</v-btn
-          >
         </div>
       </div>
     </div>
@@ -111,9 +115,11 @@
 
 <script>
 import vNav from "~/components/nav/nav";
+import mobileHeader from "~/components/header/mobileheader";
 export default {
   components: {
     vNav,
+    mobileHeader,
   },
   data() {
     return {

@@ -1,0 +1,32 @@
+.theme--light.v-calendar-events .v-event-timed {
+  border: none !important;
+}
+
+.theme--light.v-calendar-events .v-event-timed {
+  position: relative;
+  padding-left: 13px;
+  padding-top: 6px;
+  color: #000;
+
+  &.white--text {
+    color: #000 !important;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: $Grey500;
+    top: 0;
+    left: 0;
+  }
+}
+
+.innerpage-calendar {
+  height: 100%;
+}
+
+.calendar {
+  height: calc(100vh - 120px);
+}

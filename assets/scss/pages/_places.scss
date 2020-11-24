@@ -20,6 +20,8 @@
     height: 28px;
     font-size: 13px;
     transition: background-color .4s;
+    text-transform: none;
+    font-weight: normal;
 
     &:hover {
       background-color: $Grey300;
@@ -29,4 +31,27 @@
   .v-btn--outlined {
     border: 1px solid $Grey300;
   }
+}
+
+
+@media(max-width: 700px) {
+  .place-table {
+
+    td:nth-child(1),
+    td:nth-child(3),
+    td:nth-child(4) {
+      display: none;
+    }
+
+    td:last-child {
+      text-align: right;
+      width: 115px;
+    }
+
+    td:nth-last-child(2) {
+      width: 100px;
+    }
+  }
+
+  .place-table .theme--light.v-btn {}
 }

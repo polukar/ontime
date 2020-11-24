@@ -11,6 +11,7 @@ export const state = () => ({
     { text: "", value: "whatsapp" },
     { text: "", value: "tm" },
     { text: "", value: "summ" },
+    { text: "", value: "summActive",},
     { text: "", value: "active",},
     { text: "", value: "actions", sortable: false },
   ],
@@ -23,6 +24,7 @@ export const state = () => ({
       whatsapp: "#",
       tm: "#",
       summ: "2 неоплаченные записи (2 000 р)",
+      summActive: true,
       active: true,
     },
     {
@@ -33,6 +35,7 @@ export const state = () => ({
       whatsapp: "#",
       tm: "#",
       summ: "2 неоплаченные записи (2 000 р)",
+      summActive: true,
       active: false,
     },
     {
@@ -42,7 +45,8 @@ export const state = () => ({
       phone: "89193581152",
       whatsapp: "#",
       tm: "#",
-      summ: "2 неоплаченные записи (2 000 р)",
+      summ: "",
+      summActive: false,
       active: true,
     }
   ]

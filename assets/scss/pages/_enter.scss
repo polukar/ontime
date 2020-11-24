@@ -17,7 +17,7 @@
   border-radius: 8px;
   padding-top: 36px;
   padding-bottom: 88px;
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 474px;
 
   .v-tab {
@@ -147,4 +147,29 @@
 
 .registr {
   padding-top: 40px;
+}
+
+
+
+@media(max-width: 600px) {
+
+  .enter__logo,
+  .enter__socials,
+  .enter__form {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .enter__socials span {
+    font-size: 14px;
+  }
+
+  .enter__tabs {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .socials__link {
+    margin-left: 8px;
+  }
 }
