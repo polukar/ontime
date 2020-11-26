@@ -4,6 +4,10 @@
     color: #fff;
   }
 
+  td:last-child {
+    text-align: right;
+  }
+
   .theme--light.v-chip:not(.v-chip--active) {
     background-color: $Grey6;
     color: $Grey2;
@@ -31,6 +35,52 @@
   .v-btn--outlined {
     border: 1px solid $Grey300;
   }
+
+  tr:last-child {
+    td {
+      border-bottom: thin solid rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>td,
+.v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>th,
+.v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>td,
+.v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>th,
+.v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>td,
+.v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>th {
+
+  &:first-child {
+    padding-left: 20px;
+  }
+
+  &:last-child {
+    padding-right: 20px;
+  }
+}
+
+
+@media(max-width: 1400px) {
+
+  .v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>th,
+  .v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>th,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>th {
+    padding: 0 8px;
+
+    &:first-child {
+      padding-left: 20px;
+    }
+
+    &:last-child {
+      padding-right: 20px;
+    }
+  }
+
+
+
 }
 
 
@@ -53,5 +103,21 @@
     }
   }
 
-  .place-table .theme--light.v-btn {}
+  .v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tbody>tr>th,
+  .v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>thead>tr>th,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>td,
+  .v-data-table.place-table>.v-data-table__wrapper>table>tfoot>tr>th {
+    padding: 0 8px;
+
+    &:nth-child(2) {
+      padding-left: 20px;
+    }
+
+    &:last-child {
+      padding-right: 20px;
+    }
+  }
+
 }

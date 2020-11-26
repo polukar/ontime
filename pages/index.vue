@@ -1,5 +1,16 @@
 <template>
   <div class="page">
+    <mobileHeader title="Записи"></mobileHeader>
+    <div class="calendar-picker">
+      <v-row justify="center">
+        <v-date-picker
+          v-model="picker"
+          first-day-of-week="1"
+          locale="ru-ru"
+          no-title="true"
+        ></v-date-picker>
+      </v-row>
+    </div>
     <div class="page-wrap d-flex">
       <vNav></vNav>
       <div class="content">
@@ -7,9 +18,15 @@
           <div class="page__header-start d-flex align-center">
             <h1 class="h1-title">Записи</h1>
             <div class="calendar__tabs d-flex">
-              <div class="calendar__tab">Неделя</div>
-              <div class="calendar__tab">День</div>
-              <div class="calendar__tab">Список</div>
+              <nuxt-link to="/"
+                ><div class="calendar__tab">Неделя</div></nuxt-link
+              >
+              <nuxt-link to="/days"
+                ><div class="calendar__tab">День</div></nuxt-link
+              >
+              <nuxt-link to="/list"
+                ><div class="calendar__tab">Список</div></nuxt-link
+              >
             </div>
           </div>
           <v-btn fab class="btn-add" @click="openPanel">
@@ -25,6 +42,8 @@
                   v-model="value"
                   color="primary"
                   type="4day"
+                  first-day-of-week="1"
+                  locale="ru-ru"
                   :events="events"
                   :event-color="getEventColor"
                   :event-ripple="false"
@@ -72,6 +91,7 @@ export default {
     createEvent: null,
     createStart: null,
     extendOriginal: null,
+    picker: new Date().toISOString().substr(0, 10),
   }),
   methods: {
     startDrag({ event, timed }) {

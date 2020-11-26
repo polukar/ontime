@@ -31,11 +31,8 @@
             class="place-table"
             :mobile-breakpoint="0"
           >
-            <template
-              v-slot:item.active="{ item }"
-              class="d-flex justify-content-center"
-            >
-              <div class="d-flex justify-center">
+            <template v-slot:item.active="{ item }" class="d-flex">
+              <div class="d-flex">
                 <v-chip v-if="item.active" :class="{ active: item.active }">
                   активно
                 </v-chip>

@@ -7,9 +7,19 @@
   padding-left: 13px;
   padding-top: 6px;
   color: #000;
+  transition: .4s background-color;
+
 
   &.white--text {
     color: #000 !important;
+
+    &:hover {
+      background-color: $Purple50 !important;
+
+      &:after {
+        background-color: $A400;
+      }
+    }
   }
 
   &:after {
@@ -20,6 +30,7 @@
     background-color: $Grey500;
     top: 0;
     left: 0;
+    transition: .4s background-color;
   }
 }
 
@@ -29,4 +40,52 @@
 
 .calendar {
   height: calc(100vh - 120px);
+}
+
+
+.calendar__tabs {
+  margin-left: 38px;
+}
+
+.nuxt-link-exact-active .calendar__tab {
+  color: #fff;
+  background-color: $A400;
+  box-shadow: 0px 0.25px 3px rgba(0, 0, 0, 0.039), 0px 2.75px 9px rgba(0, 0, 0, 0.19);
+}
+
+.nuxt-link-exact-active {
+  text-decoration: none;
+}
+
+.calendar__tab {
+  color: $Grey800;
+  font-size: 14px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 11px;
+  padding-right: 11px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: .4s color;
+
+  &:hover {
+    color: $A400;
+  }
+}
+
+.calendar-picker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 327px;
+  z-index: 50;
+  font-weight: normal;
+  padding-top: 28px;
+  border-top: 1px solid $Grey300;
+
+  thead th {
+    padding-bottom: 26px;
+  }
 }

@@ -70,15 +70,18 @@
               </div>
             </template>
             <template v-slot:item.actions="{ item }">
-              <v-btn small outlined @click="editItem"> Записи</v-btn>
-              <v-btn small outlined @click="editItem"> Открыть</v-btn>
+              <v-btn small outlined @click="openPanel"> Записи</v-btn>
+              <v-btn small outlined @click="openPanel"> Открыть</v-btn>
             </template>
           </v-data-table>
         </div>
         <div class="panel" :class="{ active: panelActive }">
           <div class="panel__head d-flex justify-space-between align-center">
-            <div class="back d-flex align-center" @click="closePanel"></div>
-            <div class="panel__title d-flex justify-center">Место</div>
+            <div class="back d-flex align-center" @click="closePanel">
+              Назад
+              <svg-icon class="panel__head-ico" name="icon-back" />
+            </div>
+            <div class="panel__title d-flex justify-center">Клиент</div>
             <div class="close d-flex justify-end" @click="closePanel">
               <svg-icon class="panel__head-ico" name="icon-close" />
             </div>
